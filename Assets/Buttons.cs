@@ -6,9 +6,15 @@ public class Buttons : MonoBehaviour
 {
     public Ball target;
 
+    
+
     private void Update()
     {
-        transform.position = target.transform.position;
+        if (target != null)
+        {
+            transform.position = target.transform.position;
+        }
+        
     }
 
 
