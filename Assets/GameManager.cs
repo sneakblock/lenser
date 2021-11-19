@@ -40,8 +40,11 @@ public class GameManager : MonoBehaviour
 
     public float timer = 30;
 
-    
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
     private void Start()
     {
@@ -175,7 +178,10 @@ public class GameManager : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
-            SceneManager.LoadScene("MainMenu");
+            if (SceneManager.GetActiveScene().name != "Score")
+            {
+                SceneManager.LoadScene("Score");
+            }
         }
     }
 
